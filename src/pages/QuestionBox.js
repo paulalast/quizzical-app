@@ -35,7 +35,13 @@ function QuestionBox({
 				}
 			})
 		}
-	}, [checkAnswers])
+	}, [
+		checkAnswers,
+		answers,
+		handleAnswerSelected,
+		questionIndex,
+		selectedAnswer,
+	])
 
 	return (
 		<div className='question-box'>
