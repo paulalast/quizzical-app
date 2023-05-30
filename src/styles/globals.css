@@ -1,0 +1,198 @@
+:root {
+	--title-font: "Karla", sans-serif;
+	--text-font: "Inter", sans-serif;
+	--bg-dark: #182132;
+	--bg-main: #f5f7fb;
+	--color-main: #4d5b9e;
+	--dark-color: #293264;
+	--white: #f5f7fb;
+	--checked-answer: #d6dbf5;
+	--correct-answer: #94d7a2;
+	--wrong-answer: #f8bcbc;
+	--opacity-color-main: hsla(230, 34%, 46%, 0.5);
+	--opacity: #dbdef0;
+}
+
+body {
+	display: flex;
+	margin: 0;
+	place-items: center;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--bg-dark);
+	font-family: var(--text-font);
+	font-weight: 400;
+}
+
+.welcome-screen,
+.quiz-screen {
+	display: flex;
+	position: relative;
+	margin: 2rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 550px;
+	min-height: 550px;
+	padding: 2rem;
+	background-color: var(--bg-main);
+	color: var(--color-main);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 4px 4px 3px var(--color-main);
+}
+
+.welcome-screen::before,
+.quiz-screen::before {
+	content: url("./../../public/assets/blob2.svg");
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: inherit;
+}
+
+.welcome-screen::after,
+.quiz-screen::after {
+	content: url("./../../public/assets/blob.svg");
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	border-radius: inherit;
+}
+
+.quiz-screen::after {
+	content: url("/QuizzicalApp/quizzical-app/public/assets/blob3.svg");
+	border-radius: 50%;
+}
+
+.quiz-screen::before {
+	content: url("./../../public/assets/blob4.svg");
+}
+
+h1 {
+	margin: 0;
+	font-size: 31.25px;
+	font-family: var(--title-font);
+}
+
+h2 {
+	font-size: 16px;
+	text-align: center;
+	padding: 0 2rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+	color: var(--dark-color);
+}
+
+button {
+	background-color: var(--color-main);
+	color: var(--white);
+	margin-top: 2rem;
+	width: 193px;
+	height: 52px;
+	border-radius: 15px;
+	font-size: 16px;
+	font-weight: 500;
+	outline: transparent;
+	cursor: pointer;
+	border: 2px solid var(--color-main);
+	box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+	transition: 1000ms;
+	transform: translateY(0);
+	cursor: pointer;
+}
+
+button:hover {
+	transition: 1000ms;
+	transform: translateY(-0px);
+	background-color: var(--white);
+	color: var(--color-main);
+	border: solid 2px var(--color-main);
+}
+
+.question-box {
+	border-bottom: 1.5px solid var(--opacity);
+	width: 90%;
+	z-index: 10;
+}
+
+.question {
+	text-align: left;
+}
+
+.answers-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"] + label {
+	height: 20px;
+	width: fit-content;
+	height: 100%;
+	display: inline-block;
+	position: relative;
+	margin: 0 1em;
+	cursor: pointer;
+	padding: 0.1rem 0.3rem;
+	text-align: center;
+}
+
+input[type="radio"] + label:before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 1px solid var(--opacity-color-main);
+	border-radius: 8px;
+	position: absolute;
+	z-index: -1;
+	padding: 3px 5px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: background-color 0.3s, border 0.1s ease-in-out;
+}
+
+label {
+	font-size: 10.5px;
+	z-index: 100;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-self: center;
+	align-self: center;
+	bottom: 0;
+}
+
+input[type="radio"]:checked + label:before {
+	background-color: var(--checked-answer);
+	border: 2px solid var(--checked-answer);
+}
+
+input[type="radio"]:checked + label.correct::before {
+	background-color: var(--correct-answer);
+}
+input[type="radio"] + label.correct::before {
+	background-color: var(--correct-answer);
+	border: 1px solid var(--correct-answer);
+}
+
+input[type="radio"]:checked + label.incorrect::before,
+label.incorrect {
+	background-color: var(--wrong-answer);
+	border: 1px solid var(--wrong-answer);
+	color: rgba(77, 91, 157, 0.5);
+}
+label.fade {
+	opacity: 0.3;
+}
+label.correct {
+	opacity: 1;
+}
