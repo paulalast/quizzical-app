@@ -33,7 +33,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	width: 550px;
-	max-width: 550px;
+	max-width: 100vw;
 	min-height: 550px;
 	padding: 2rem;
 	background-color: var(--bg-main);
