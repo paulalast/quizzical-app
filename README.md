@@ -1,6 +1,5 @@
 # QuizzicalApp
-React Quiz App - solo-project from course Learn React by Bob Ziroll on Scrimba.com.
-
+React Quiz App - solo-project 
 Live View: https://paulalast.github.io/quizzical-app/
 
 
